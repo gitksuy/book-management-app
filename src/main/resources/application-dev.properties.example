@@ -1,0 +1,11 @@
+# Development Environment Configuration
+
+# This file should be copied to application-dev.properties and not committed to Git
+
+# Override any properties from application-template.properties as needed
+
+# Google Books API - Add your development API key here
+google.books.api.key=YOUR_DEV_API_KEY_HERE
+
+# Development-specific logging
+logging.level.com.interview.bookapi=DEBUG 
