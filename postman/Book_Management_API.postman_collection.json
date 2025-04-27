@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "a42e4b6d-50f3-4a28-9fb2-b87fb9f4b3c6",
+		"name": "Book Management API",
+		"description": "Collection for testing the Book Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The Great Gatsby\",\n    \"author\": \"F. Scott Fitzgerald\",\n    \"description\": \"The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald.\",\n    \"isbn\": \"9780743273565\",\n    \"genre\": \"Fiction\",\n    \"pageCount\": 180,\n    \"publisher\": \"Scribner\",\n    \"publishedDate\": \"2004-09-30T00:00:00\",\n    \"coverImageUrl\": \"https://m.media-amazon.com/images/I/71FTb9X6wsL._AC_UF1000,1000_QL80_.jpg\",\n    \"averageRating\": 4.2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books"
+					]
+				},
+				"description": "Creates a new book in the database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Books (Paginated)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				},
+				"description": "Gets all books with pagination (10 per page)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				},
+				"description": "Gets a book by its ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"The Great Gatsby (Updated)\",\n    \"author\": \"F. Scott Fitzgerald\",\n    \"description\": \"The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Updated description.\",\n    \"isbn\": \"9780743273565\",\n    \"genre\": \"Classic Fiction\",\n    \"pageCount\": 180,\n    \"publisher\": \"Scribner\",\n    \"publishedDate\": \"2004-09-30T00:00:00\",\n    \"coverImageUrl\": \"https://m.media-amazon.com/images/I/71FTb9X6wsL._AC_UF1000,1000_QL80_.jpg\",\n    \"averageRating\": 4.5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				},
+				"description": "Updates an existing book by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				},
+				"description": "Deletes a book by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/search?query=Gatsby&searchBy=title&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Gatsby"
+						},
+						{
+							"key": "searchBy",
+							"value": "title"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				},
+				"description": "Searches for books by title, author, or genre"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book Details with Google Books Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/1/details",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"1",
+						"details"
+					]
+				},
+				"description": "Gets detailed book information including data from Google Books API"
+			},
+			"response": []
+		}
+	]
+} 
